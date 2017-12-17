@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">View Animations</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="instructions">Triggering help will alert your emergency contacts.\n\nIf you require immediate assistance, call "000"</string>
+</resources>

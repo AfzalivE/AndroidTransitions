@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root"
+    android:background="#2A2A2A"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.afzaln.viewanimations.MainActivity">
+
+    <View
+        android:id="@+id/orange"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
+        android:background="#F6BB46" />
+
+    <View
+        android:id="@+id/blue"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
+        android:background="#00ABE5"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/green"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
+        android:background="#82C85C" />
+
+    <View
+        android:id="@+id/red"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#F03B2E" />
+
+</LinearLayout>
