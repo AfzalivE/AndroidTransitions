@@ -20,6 +20,10 @@ android {
     }
 }
 
+androidExtensions {
+    experimental = true
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -33,6 +37,7 @@ dependencies {
     implementation "com.google.android.gms:play-services-maps:11.6.2"
 
     // UI libs
+    implementation "com.squareup.flow:flow:1.0.0-alpha3"
     implementation "com.cesarferreira.colorize:colorize:0.2.2"
 
     // test libs

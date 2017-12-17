@@ -1,36 +1,24 @@
-package com.afzaln.viewanimations
+package com.afzaln.viewanimations.flow
 
-import android.annotation.TargetApi
-import android.os.Build
-import android.os.Bundle
+import android.content.Context
 import android.support.constraint.ConstraintSet
 import android.support.transition.ChangeBounds
 import android.support.transition.Fade
 import android.support.transition.TransitionManager
 import android.support.transition.TransitionSet
 import android.support.v4.view.animation.FastOutSlowInInterpolator
-import android.support.v7.app.AppCompatActivity
-import android.transition.Slide
-import android.view.Gravity
+import android.util.AttributeSet
 import android.view.View
-import android.view.Window
-import kotlinx.android.synthetic.main.activity_alarm.*
+import android.widget.FrameLayout
+import com.afzaln.viewanimations.R
+import kotlinx.android.synthetic.main.screen_alarm.view.*
 
-class AlarmActivity : AppCompatActivity() {
+class AlarmView @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : FrameLayout(context, attrs, defStyleAttr) {
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
-        setContentView(R.layout.activity_alarm)
-
-        // set an exit transition
-        window.enterTransition = Slide(Gravity.BOTTOM)
-            .excludeTarget(android.R.id.statusBarBackground, true)
-            .excludeTarget(android.R.id.navigationBarBackground, true)
-
-
-        map.onCreate(savedInstanceState)
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
 
         val idleSet = ConstraintSet()
         val triggeredSet = ConstraintSet()
@@ -75,25 +63,5 @@ class AlarmActivity : AppCompatActivity() {
             TransitionManager.beginDelayedTransition(alarmView, transition)
             idleSet.applyTo(alarmView)
         })
-    }
-
-    override fun onResume() {
-        super.onResume()
-        map.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        map.onPause()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        map.onDestroy()
-    }
-
-    override fun onLowMemory() {
-        super.onLowMemory()
-        map.onLowMemory()
     }
 }

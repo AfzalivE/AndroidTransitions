@@ -19,7 +19,7 @@ class HomeActivity : AppCompatActivity() {
 
         val transition = TransitionSet()
             .addTransition(Slide(Gravity.BOTTOM)
-                .addTarget(alarmView.container)
+                .addTarget(alarmView.alarmView)
                 .setDuration(500)
                 .setInterpolator(LinearOutSlowInInterpolator()))
             .addTransition(ChangeBounds()
