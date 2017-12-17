@@ -20,6 +20,20 @@ class AlarmView @JvmOverloads constructor(
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
 
+        val (idleSet, triggeredSet, transition) = createTriggeredTransition()
+
+        helpButton.setOnClickListener({
+            TransitionManager.beginDelayedTransition(alarmView, transition)
+            triggeredSet.applyTo(alarmView)
+        })
+
+        okButton.setOnClickListener({
+            TransitionManager.beginDelayedTransition(alarmView, transition)
+            idleSet.applyTo(alarmView)
+        })
+    }
+
+    private fun createTriggeredTransition(): Triple<ConstraintSet, ConstraintSet, TransitionSet> {
         val idleSet = ConstraintSet()
         val triggeredSet = ConstraintSet()
 
@@ -53,15 +67,6 @@ class AlarmView @JvmOverloads constructor(
             .addTransition(ChangeBounds()
                 .setDuration(400)
                 .setInterpolator(FastOutSlowInInterpolator()))
-
-        helpButton.setOnClickListener({
-            TransitionManager.beginDelayedTransition(alarmView, transition)
-            triggeredSet.applyTo(alarmView)
-        })
-
-        okButton.setOnClickListener({
-            TransitionManager.beginDelayedTransition(alarmView, transition)
-            idleSet.applyTo(alarmView)
-        })
+        return Triple(idleSet, triggeredSet, transition)
     }
 }

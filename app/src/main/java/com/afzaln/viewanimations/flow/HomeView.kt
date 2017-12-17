@@ -3,6 +3,7 @@ package com.afzaln.viewanimations.flow
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
+import com.afzaln.viewanimations.flow.AppDispatcher.AlarmScreen
 import flow.Flow
 import kotlinx.android.synthetic.main.screen_home.view.*
 

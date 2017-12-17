@@ -45,18 +45,18 @@ class AppDispatcher(private val activity: Activity) : Dispatcher {
 
         callback.onTraversalCompleted() // Tell Flow that we are done
     }
-}
 
-@SuppressLint("ParcelCreator")
-@Parcelize
-class HomeScreen : Parcelable
+    @SuppressLint("ParcelCreator")
+    @Parcelize
+    class HomeScreen : Parcelable
 
-@SuppressLint("ParcelCreator")
-@Parcelize
-class AlarmScreen : Parcelable
+    @SuppressLint("ParcelCreator")
+    @Parcelize
+    class AlarmScreen : Parcelable
 
-class TransitionAppKeyParceler : KeyParceler {
-    override fun toParcelable(key: Any): Parcelable = key as Parcelable
-    override fun toKey(parcelable: Parcelable): Any = parcelable
+    class TransitionAppKeyParceler : KeyParceler {
+        override fun toParcelable(key: Any): Parcelable = key as Parcelable
+        override fun toKey(parcelable: Parcelable): Any = parcelable
 
+    }
 }

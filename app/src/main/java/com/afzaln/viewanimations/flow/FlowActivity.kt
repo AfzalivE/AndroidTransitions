@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.afzaln.viewanimations.R
+import com.afzaln.viewanimations.flow.AppDispatcher.HomeScreen
+import com.afzaln.viewanimations.flow.AppDispatcher.TransitionAppKeyParceler
 import flow.Flow
 
 class FlowActivity : AppCompatActivity() {
