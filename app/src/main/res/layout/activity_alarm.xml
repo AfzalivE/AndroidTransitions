@@ -115,7 +115,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/alarm_fab"
+        android:id="@+id/alarmFab"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="bottom|center_horizontal"

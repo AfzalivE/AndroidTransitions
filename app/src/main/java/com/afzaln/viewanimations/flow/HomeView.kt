@@ -31,7 +31,7 @@ class HomeView @JvmOverloads constructor(
 //                }
 //            })
 
-        home_fab.setOnClickListener({
+        homeFab.setOnClickListener({
             Flow.get(context).set(AlarmScreen())
 
 //            TransitionManager.beginDelayedTransition(viewGroup, transition)

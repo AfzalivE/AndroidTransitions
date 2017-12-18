@@ -23,18 +23,18 @@ class HomeActivity : AppCompatActivity() {
                 .setDuration(500)
                 .setInterpolator(LinearOutSlowInInterpolator()))
             .addTransition(ChangeBounds()
-                .addTarget(homeView.home_fab)
-                .addTarget(alarmView.alarm_fab))
+                .addTarget(homeView.homeFab)
+                .addTarget(alarmView.alarmFab))
             .addListener(object : TransitionListenerAdapter() {
                 override fun onTransitionEnd(transition: Transition) {
                     viewGroup.removeView(homeView)
                 }
             })
 
-        home_fab.setOnClickListener({
+        homeFab.setOnClickListener({
             TransitionManager.beginDelayedTransition(viewGroup, transition)
             viewGroup.addView(alarmView)
-            homeView.removeView(homeView.home_fab)
+            homeView.removeView(homeView.homeFab)
         })
     }
 }

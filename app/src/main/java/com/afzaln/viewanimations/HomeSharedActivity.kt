@@ -20,9 +20,9 @@ class HomeSharedActivity : AppCompatActivity() {
         window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
         setContentView(R.layout.activity_home)
 
-        home_fab.setOnClickListener({
+        homeFab.setOnClickListener({
             val intent = Intent(this, AlarmActivity::class.java)
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, home_fab, "fab")
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, homeFab, "fab")
 
             // set an exit transition
             window.exitTransition = Fade()
