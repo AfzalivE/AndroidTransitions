@@ -67,6 +67,7 @@ class AlarmView @JvmOverloads constructor(
             .addTransition(ChangeBounds()
                 .setDuration(400)
                 .setInterpolator(FastOutSlowInInterpolator()))
+        
         return Triple(idleSet, triggeredSet, transition)
     }
 }
