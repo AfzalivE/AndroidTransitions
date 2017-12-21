@@ -5,6 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <View
+        android:id="@+id/whiteBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F2F2F2" />
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/alarmView"
         android:layout_width="match_parent"
@@ -29,12 +35,6 @@
             android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/whiteBackground"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#F2F2F2" />
-
         <TextView
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
             android:text="Alarm"
             android:textSize="30sp"
             app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
-            app:layout_constraintTop_toTopOf="@id/whiteBackground" />
+            app:layout_constraintTop_toTopOf="@id/updateTitle" />
 
         <TextView
             android:id="@+id/instructions"
