@@ -40,6 +40,9 @@ dependencies {
     implementation "com.squareup.flow:flow:1.0.0-alpha3"
     implementation "com.cesarferreira.colorize:colorize:0.2.2"
 
+    // debug libs
+    implementation "com.jakewharton:timber:4.5.1"
+
     // test libs
     testImplementation "junit:junit:4.12"
     androidTestImplementation "com.android.support.test:runner:1.0.1"

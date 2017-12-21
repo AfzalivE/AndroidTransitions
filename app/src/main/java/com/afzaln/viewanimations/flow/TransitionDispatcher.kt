@@ -44,6 +44,7 @@ class TransitionDispatcher {
             TransitionManager.beginDelayedTransition(rootView, transition)
             rootView.addView(newView)
             currentView.removeView(currentView.alarmFab)
+            currentView.removeView(currentView.alarmView)
         } else {
             val transition = TransitionSet()
                 .addTransition(AutoTransition())
