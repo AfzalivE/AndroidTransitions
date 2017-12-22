@@ -4,7 +4,6 @@ import android.support.transition.*
 import android.support.v4.view.animation.FastOutSlowInInterpolator
 import android.support.v4.view.animation.LinearOutSlowInInterpolator
 import android.view.Gravity
-import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.screen_alarm.view.*
 import kotlinx.android.synthetic.main.screen_home.view.*
@@ -39,13 +38,14 @@ class TransitionDispatcher {
                     .setInterpolator(FastOutSlowInInterpolator()))
                 .addTransition(ChangeBounds()
                     .addTarget(newView.homeFab)
-                    .addTarget(currentView.alarmFab))
+                    .addTarget(currentView.alarmFab)
+                    .setDuration(2000))
                 .addListener(object : TransitionListenerAdapter() {
                     override fun onTransitionEnd(transition: Transition) = rootView.removeView(currentView)
                 })
 
             TransitionManager.beginDelayedTransition(rootView, transition)
-            currentView.whiteBackground.visibility = View.GONE
+//            currentView.whiteBackground.visibility = View.GONE
 
             rootView.addView(newView)
             currentView.removeView(currentView.alarmFab)
