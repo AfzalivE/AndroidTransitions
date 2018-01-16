@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/inner_circle"
+        android:layout_width="208dp"
+        android:layout_height="208dp"
+        android:background="@drawable/grey_circle"
+        app:layout_constraintBottom_toBottomOf="@id/outer_circle"
+        app:layout_constraintEnd_toEndOf="@id/outer_circle"
+        app:layout_constraintStart_toStartOf="@id/outer_circle"
+        app:layout_constraintTop_toTopOf="@id/outer_circle" />
+
+    <View
+        android:id="@+id/outer_circle"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:background="@drawable/circle_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/start"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:theme="@style/ColoredButton"
+        app:layout_constraintBottom_toBottomOf="@id/outer_circle"
+        app:layout_constraintEnd_toEndOf="@id/outer_circle"
+        app:layout_constraintStart_toStartOf="@id/outer_circle"
+        app:layout_constraintTop_toTopOf="@id/outer_circle" />
+
+</android.support.constraint.ConstraintLayout>

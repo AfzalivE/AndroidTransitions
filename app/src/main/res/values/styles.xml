@@ -17,4 +17,8 @@
         <item name="android:textColor">@color/c_blue_crayola</item>
     </style>
 
+    <style name="ColoredButton" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@color/c_green</item>
+    </style>
+
 </resources>
