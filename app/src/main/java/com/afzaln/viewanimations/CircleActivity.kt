@@ -1,10 +1,9 @@
 package com.afzaln.viewanimations
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
 import android.support.constraint.ConstraintSet
 import android.support.transition.*
+import android.support.v4.view.ViewCompat
 import android.support.v4.view.animation.FastOutSlowInInterpolator
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -51,7 +50,7 @@ class CircleActivity : AppCompatActivity() {
         inner_circle.layoutParams = lp
 
         inner_circle.postDelayed({
-//            inner_circle.visibility = View.GONE
+            //            inner_circle.visibility = View.GONE
         }, 250)
 
     }
@@ -101,19 +100,18 @@ class CircleActivity : AppCompatActivity() {
         inner_circle.animate()
             .setInterpolator(FastOutSlowInInterpolator())
             .scaleX(1.2f)
-            .scaleY(1.2f).duration = animDuration
+            .scaleY(1.2f)
+            .setDuration(animDuration)
 
-        outer_circle.animate()
+        ViewCompat.animate(outer_circle)
             .scaleX(0.80f)
             .scaleY(0.80f)
             .setInterpolator(FastOutSlowInInterpolator())
             .setDuration(animDuration)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator?) {
-                    TransitionManager.beginDelayedTransition(root)
-                    outer_circle.visibility = View.GONE
-                    start.visibility = View.GONE
-                }
+            .withEndAction({
+                TransitionManager.beginDelayedTransition(root)
+                outer_circle.visibility = View.GONE
+                start.visibility = View.GONE
             })
     }
 }
