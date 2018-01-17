@@ -20,8 +20,8 @@ class CircleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_circles)
 
         start.setOnClickListener({
-//            applyPropertyAnimations()
-            applyTransition()
+            applyPropertyAnimations()
+//            applyTransition()
         })
 
 //        setupConstraintSetAnimations()
@@ -32,16 +32,28 @@ class CircleActivity : AppCompatActivity() {
         val fadeTransition = Fade()
 
         val bothTransition = TransitionSet()
+            .setOrdering(TransitionSet.ORDERING_SEQUENTIAL)
             .addTransition(sizeTransition)
             .addTransition(fadeTransition)
+            .addListener(object : TransitionListenerAdapter() {
+                override fun onTransitionEnd(transition: Transition) {
+                    inner_circle.visibility = View.GONE
+                }
+            })
+
+        val auto = AutoTransition()
+
+        TransitionManager.beginDelayedTransition(root, bothTransition)
 
         val lp = inner_circle.layoutParams
         lp.height = (lp.height * 1.2).toInt()
         lp.width = (lp.width * 1.2).toInt()
         inner_circle.layoutParams = lp
 
-        TransitionManager.beginDelayedTransition(root, sizeTransition)
-        inner_circle.visibility = View.GONE
+        inner_circle.postDelayed({
+//            inner_circle.visibility = View.GONE
+        }, 250)
+
     }
 
     private fun setupConstraintSetAnimations() {
@@ -87,12 +99,14 @@ class CircleActivity : AppCompatActivity() {
         inner_circle.visibility = View.GONE
 
         inner_circle.animate()
+            .setInterpolator(FastOutSlowInInterpolator())
             .scaleX(1.2f)
             .scaleY(1.2f).duration = animDuration
 
         outer_circle.animate()
             .scaleX(0.80f)
             .scaleY(0.80f)
+            .setInterpolator(FastOutSlowInInterpolator())
             .setDuration(animDuration)
             .setListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator?) {
