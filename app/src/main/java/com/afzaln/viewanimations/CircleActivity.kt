@@ -94,13 +94,15 @@ class CircleActivity : AppCompatActivity() {
             .setDuration(animDuration)
 
         TransitionManager.beginDelayedTransition(root, transition)
-
         inner_circle.visibility = View.GONE
+        outer_circle.visibility = View.GONE
+        start.visibility = View.GONE
 
         inner_circle.animate()
             .setInterpolator(FastOutSlowInInterpolator())
             .scaleX(1.2f)
             .scaleY(1.2f)
+            .alpha(0f)
             .setDuration(animDuration)
 
         ViewCompat.animate(outer_circle)
@@ -108,10 +110,9 @@ class CircleActivity : AppCompatActivity() {
             .scaleY(0.80f)
             .setInterpolator(FastOutSlowInInterpolator())
             .setDuration(animDuration)
-            .withEndAction({
-                TransitionManager.beginDelayedTransition(root)
-                outer_circle.visibility = View.GONE
-                start.visibility = View.GONE
-            })
+//            .withEndAction({
+//                TransitionManager.beginDelayedTransition(root)
+//
+//            })
     }
 }
